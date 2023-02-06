@@ -1,4 +1,4 @@
-# SwiftUI Navigation
+# SwiftUI Navigation with support SwiftUI NavigationStack Backport
 
 [![CI](https://github.com/pointfreeco/swiftui-navigation/actions/workflows/ci.yml/badge.svg)](https://github.com/pointfreeco/swiftui-navigation/actions/workflows/ci.yml)
 [![Slack](https://img.shields.io/badge/slack-chat-informational.svg?label=Slack&logo=slack)](http://pointfree.co/slack-invite)
@@ -114,6 +114,8 @@ dependencies: [
 ## Documentation
 
 The latest documentation for the SwiftUI Navigation APIs is available [here](http://pointfreeco.github.io/swiftui-navigation/main/documentation/swiftuinavigation/).
+
+And SwiftUI NavigationStack Backport [here](https://github.com/lm/navigation-stack-backport).
 
 ## License
 

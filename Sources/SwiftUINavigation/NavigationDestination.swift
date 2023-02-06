@@ -1,5 +1,6 @@
 #if swift(>=5.7)
   import SwiftUI
+  import NavigationStackBackport
 
   @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
   extension View {

@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUINavigation
+import NavigationStackBackport
 
 struct RootView: View {
   var body: some View {
@@ -32,9 +33,9 @@ struct RootView: View {
 
         Section {
           NavigationLink("Optional destinations") {
-            NavigationStack {
-              NavigationDestinations()
-            }
+			  NavigationStackBackport.NavigationStack {
+				  NavigationDestinations()
+			  }
             .navigationTitle("Navigation stack")
           }
           NavigationLink("Optional navigation links") {

@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUINavigation
+import NavigationStackBackport
 
 struct Item: Equatable, Identifiable {
   let id = UUID()
@@ -94,9 +95,9 @@ struct ItemView_Previews: PreviewProvider, View {
   @State var item = Item(color: nil, name: "", status: .inStock(quantity: 1))
 
   static var previews: some View {
-    NavigationStack {
-      ItemView_Previews()
-    }
+	  NavigationStackBackport.NavigationStack {
+		  ItemView_Previews()
+	  }
   }
 
   var body: some View {

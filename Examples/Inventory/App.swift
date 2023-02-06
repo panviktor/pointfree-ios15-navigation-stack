@@ -1,4 +1,5 @@
 import SwiftUI
+import NavigationStackBackport
 
 @main
 struct InventoryApp: App {
@@ -61,9 +62,9 @@ struct AppView: View {
         Label("First", systemImage: "arrow.forward")
       }
 
-      NavigationStack {
-        InventoryView(model: self.model.inventoryModel)
-      }
+		NavigationStackBackport.NavigationStack {
+			InventoryView(model: self.model.inventoryModel)
+		}
       .tag(AppModel.Tab.inventory)
       .tabItem {
         Label("Inventory", systemImage: "list.clipboard.fill")

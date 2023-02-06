@@ -2,7 +2,7 @@
   import SwiftUI
   import NavigationStackBackport
 
-  @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
+  @available(iOS 15, macOS 13, tvOS 16, watchOS 9, *)
   extension View {
     /// Pushes a view onto a `NavigationStack` using a binding as a data source for the
     /// destination's content.
@@ -79,7 +79,7 @@
 
   // NB: This view modifier works around a bug in SwiftUI's built-in modifier:
   // https://gist.github.com/mbrandonw/f8b94957031160336cac6898a919cbb7#file-fb11056434-md
-  @available(iOS 16, macOS 13, tvOS 16, watchOS 9, *)
+  @available(iOS 15, macOS 13, tvOS 16, watchOS 9, *)
   private struct _NavigationDestination<Destination: View>: ViewModifier {
     @Binding var isPresented: Bool
     let destination: Destination
@@ -87,9 +87,15 @@
     @State private var isPresentedState = false
 
     public func body(content: Content) -> some View {
-      content
-        .navigationDestination(isPresented: self.$isPresentedState) { self.destination }
-        .bind(self.$isPresented, to: self.$isPresentedState)
+		if #available(iOS 16.0, *) {
+			content
+				.navigationDestination(isPresented: self.$isPresentedState) { self.destination }
+				.bind(self.$isPresented, to: self.$isPresentedState)
+		} else {
+			content
+				.backport.navigationDestination(isPresented: self.$isPresentedState) { self.destination }
+				.bind(self.$isPresented, to: self.$isPresentedState)
+		}
     }
   }
 #endif

@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUINavigation
+import NavigationStackBackport
 import XCTestDynamicOverlay
 
 class ItemRowModel: Identifiable, ObservableObject {
@@ -123,7 +124,7 @@ struct ItemRowView: View {
         unwrapping: self.$model.destination,
         case: /ItemRowModel.Destination.duplicate
       ) { $item in
-        NavigationStack {
+		  NavigationStackBackport.NavigationStack {
           ItemView(item: $item)
             .navigationBarTitle("Duplicate")
             .toolbar {

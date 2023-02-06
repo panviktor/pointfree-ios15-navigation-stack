@@ -1,7 +1,6 @@
 import SwiftUI
 import SwiftUINavigation
 
-@available(iOS 16, *)
 struct NavigationDestinations: View {
   @ObservedObject private var model = FeatureModel()
 

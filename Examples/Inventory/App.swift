@@ -1,5 +1,5 @@
 import SwiftUI
-import NavigationStackBackport
+import SwiftUINavigation
 
 @main
 struct InventoryApp: App {

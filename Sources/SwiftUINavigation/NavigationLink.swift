@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension NavigationLink {
+extension SwiftUI.NavigationLink {
   /// Creates a navigation link that presents the destination view when a bound value is non-`nil`.
   ///
   /// This allows you to drive navigation to a destination from an optional value. When the

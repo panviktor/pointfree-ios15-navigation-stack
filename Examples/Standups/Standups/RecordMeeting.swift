@@ -374,30 +374,30 @@ struct MeetingFooterView: View {
 }
 
 struct RecordMeeting_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      RecordMeetingView(
-        model: RecordMeetingModel(standup: .mock)
-      )
-    }
-    .previewDisplayName("Happy path")
+	static var previews: some View {
+		SwiftUI.NavigationStack {
+			RecordMeetingView(
+				model: RecordMeetingModel(standup: .mock)
+			)
+		}
+		.previewDisplayName("Happy path")
 
-    Preview(
-      message: """
-        This preview demonstrates how the feature behaves when the speech recognizer emits a \
-        failure after 2 seconds of transcribing.
-        """
-    ) {
-      NavigationStack {
-        RecordMeetingView(
-          model: withDependencies {
-            $0.speechClient = .fail(after: .seconds(2))
-          } operation: {
-            RecordMeetingModel(standup: .mock)
-          }
-        )
-      }
-    }
-    .previewDisplayName("Speech failure after 2 secs")
-  }
+		Preview(
+			message: """
+		This preview demonstrates how the feature behaves when the speech recognizer emits a \
+		failure after 2 seconds of transcribing.
+		"""
+		) {
+			SwiftUI.NavigationStack {
+				RecordMeetingView(
+					model: withDependencies {
+						$0.speechClient = .fail(after: .seconds(2))
+					} operation: {
+						RecordMeetingModel(standup: .mock)
+					}
+				)
+			}
+		}
+		.previewDisplayName("Speech failure after 2 secs")
+	}
 }

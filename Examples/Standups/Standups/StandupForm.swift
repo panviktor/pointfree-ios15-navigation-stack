@@ -110,27 +110,27 @@ extension Duration {
 }
 
 struct StandupForm_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      StandupFormView(model: StandupFormModel(standup: .mock))
-    }
-    .previewDisplayName("Edit")
+	static var previews: some View {
+		SwiftUI.NavigationStack {
+			StandupFormView(model: StandupFormModel(standup: .mock))
+		}
+		.previewDisplayName("Edit")
 
-    Preview(
-      message: """
-        This preview shows how we can start the screen if a very specific state, where the 4th \
-        attendee is already focused.
-        """
-    ) {
-      NavigationStack {
-        StandupFormView(
-          model: StandupFormModel(
-            focus: .attendee(Standup.mock.attendees[3].id),
-            standup: .mock
-          )
-        )
-      }
-    }
+		Preview(
+			message: """
+		This preview shows how we can start the screen if a very specific state, where the 4th \
+		attendee is already focused.
+		"""
+		) {
+			SwiftUI.NavigationStack {
+				StandupFormView(
+					model: StandupFormModel(
+						focus: .attendee(Standup.mock.attendees[3].id),
+						standup: .mock
+					)
+				)
+			}
+		}
     .previewDisplayName("4th attendee focused")
   }
 }

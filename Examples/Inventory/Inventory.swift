@@ -1,7 +1,6 @@
 import IdentifiedCollections
 import SwiftUI
 import SwiftUINavigation
-import NavigationStackBackport
 
 class InventoryModel: ObservableObject {
   @Published var inventory: IdentifiedArrayOf<ItemRowModel> {
@@ -108,7 +107,7 @@ struct InventoryView: View {
       unwrapping: self.$model.destination,
       case: /InventoryModel.Destination.add
     ) { $itemToAdd in
-		NavigationStackBackport.NavigationStack {
+		NavigationStack {
         ItemView(item: $itemToAdd)
           .navigationTitle("Add")
           .toolbar {
@@ -128,7 +127,7 @@ struct InventoryView_Previews: PreviewProvider {
   static var previews: some View {
     let keyboard = Item(color: .blue, name: "Keyboard", status: .inStock(quantity: 100))
 
-	  NavigationStackBackport.NavigationStack {
+	  NavigationStack {
       InventoryView(
          model: InventoryModel(
           inventory: [

@@ -148,7 +148,7 @@ struct StandupsList: View {
   @ObservedObject var model: StandupsListModel
 
   var body: some View {
-    NavigationStack {
+	  SwiftUI.NavigationStack {
       List {
         ForEach(self.model.standups) { standup in
           Button {
@@ -171,7 +171,7 @@ struct StandupsList: View {
         unwrapping: self.$model.destination,
         case: /StandupsListModel.Destination.add
       ) { $model in
-        NavigationStack {
+		  SwiftUI.NavigationStack {
           StandupFormView(model: model)
             .navigationTitle("New standup")
             .toolbar {

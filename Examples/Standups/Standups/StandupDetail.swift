@@ -239,7 +239,7 @@ struct StandupDetailView: View {
       unwrapping: self.$model.destination,
       case: /StandupDetailModel.Destination.edit
     ) { $editModel in
-      NavigationStack {
+		SwiftUI.NavigationStack {
         StandupFormView(model: editModel)
           .navigationTitle(self.model.standup.title)
           .toolbar {
@@ -345,9 +345,9 @@ struct StandupDetail_Previews: PreviewProvider {
         of some "lorem ipsum" text because a mock speech recongizer is used for Xcode previews.
         """
     ) {
-      NavigationStack {
-        StandupDetailView(model: StandupDetailModel(standup: .mock))
-      }
+		SwiftUI.NavigationStack {
+			StandupDetailView(model: StandupDetailModel(standup: .mock))
+		}
     }
     .previewDisplayName("Happy path")
 
@@ -359,7 +359,7 @@ struct StandupDetail_Previews: PreviewProvider {
         preview, tap the "Start Meeting" button and wait 2 seconds.
         """
     ) {
-      NavigationStack {
+		SwiftUI.NavigationStack {
         StandupDetailView(
           model: withDependencies {
             $0.speechClient = .fail(after: .seconds(2))
@@ -378,7 +378,7 @@ struct StandupDetail_Previews: PreviewProvider {
         that situation.
         """
     ) {
-      NavigationStack {
+		SwiftUI.NavigationStack {
         StandupDetailView(
           model: withDependencies {
             $0.speechClient.authorizationStatus = { .denied }
@@ -397,15 +397,15 @@ struct StandupDetail_Previews: PreviewProvider {
         situation.
         """
     ) {
-      NavigationStack {
-        StandupDetailView(
-          model: withDependencies {
-            $0.speechClient.authorizationStatus = { .restricted }
-          } operation: {
-            StandupDetailModel(standup: .mock)
-          }
-        )
-      }
+		SwiftUI.NavigationStack {
+			StandupDetailView(
+				model: withDependencies {
+					$0.speechClient.authorizationStatus = { .restricted }
+				} operation: {
+					StandupDetailModel(standup: .mock)
+				}
+			)
+		}
     }
     .previewDisplayName("Speech recognition restricted")
   }

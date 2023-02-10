@@ -187,7 +187,7 @@ extension IfCaseLet {
 
 // NB: Deprecated after 0.2.0
 
-extension NavigationLink {
+extension SwiftUI.NavigationLink {
   @available(*, deprecated, renamed: "init(unwrapping:onNavigate:destination:label:)")
   public init<Value, WrappedDestination>(
     unwrapping value: Binding<Value?>,
@@ -212,8 +212,8 @@ extension NavigationLink {
   ) where Destination == WrappedDestination? {
     self.init(
       unwrapping: `enum`.case(casePath),
-      onNavigate: onNavigate,
-      destination: destination,
+	  destination: destination,
+	  onNavigate: onNavigate,
       label: label
     )
   }
